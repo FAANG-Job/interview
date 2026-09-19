@@ -144,3 +144,61 @@ To stop the container, press `Ctrl+C` in the terminal running the container.
 ## Current status
 
 The Java 21 container image was successfully built locally using Podman. Container execution and API validation will be confirmed after rootless `pasta` networking is verified.
+
+## CI/CD pipeline with Jenkins
+
+A Jenkins CI/CD pipeline is configured to retrieve source code from this GitHub repository and validate every change.
+
+### Pipeline workflow
+
+1. A developer creates a feature branch.
+2. Changes are committed and pushed to GitHub.
+3. A pull request is created for review.
+4. Jenkins retrieves the source code from GitHub.
+5. Jenkins executes the following stages:
+
+   * Source checkout
+   * Maven build
+   * Unit tests
+   * Application packaging
+   * Container image build using Podman
+   * Container validation using the application health endpoint
+6. The build result is reviewed before merging the pull request.
+
+### Jenkins configuration
+
+1. Open Jenkins.
+
+2. Select **New Item**.
+
+3. Enter a pipeline name, for example `interview-ci-cd`.
+
+4. Select **Pipeline** and click **OK**.
+
+5. In the Pipeline section, select **Pipeline script from SCM**.
+
+6. Select **Git** as the SCM.
+
+7. Enter the GitHub repository URL.
+
+8. Select the required branch.
+
+9. Set the script path to:
+
+   ```text
+   Jenkinsfile
+   ```
+
+10. Save the pipeline and select **Build Now**.
+
+### Pipeline validation
+
+The pipeline was intentionally tested with a failing unit test. Jenkins marked the build as failed, confirming that the pipeline correctly detects test failures.
+
+After fixing the unit test, the build should pass successfully. This demonstrates that the CI pipeline validates code quality before changes are merged.
+
+### Security
+
+* Store GitHub credentials and tokens in Jenkins Credentials.
+* Do not commit secrets, passwords, API keys, or private URLs to GitHub.
+* Keep environment-specific values outside source control by using Jenkins credentials or environment variables.
