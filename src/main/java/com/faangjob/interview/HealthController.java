@@ -10,6 +10,8 @@ import java.util.logging.Logger;
 public class HealthController {
     @GetMapping("/health")
     public Map<String, String> health() {
+		
+		
 		logger.info("Health-check endpoint called");
         return Map.of("status", "UP");
     }
