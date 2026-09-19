@@ -7,7 +7,6 @@ $env:Path = "$env:JAVA_HOME\bin;$env:Path"
 ```
 A minimal Java 21 Spring Boot REST API.
 
-## Run
 
 ```bash
 mvn spring-boot:run
