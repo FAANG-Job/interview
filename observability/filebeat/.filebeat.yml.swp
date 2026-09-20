@@ -1,0 +1,1 @@
+filebeat.inputs:  - type: filestream    id: interview-application-log    enabled: true    paths:      - /logs/interview.logoutput.logstash:  hosts: ["logstash:5044"]

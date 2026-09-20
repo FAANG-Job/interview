@@ -231,3 +231,4 @@ Do not include passwords, tokens, Jenkins credentials, or internal URLs in scree
 * ELK images successfully downloaded using `compose.observability.yaml`.
 * Native Windows ELK installation remains the active local observability runtime.
 * ELK Compose startup is pending resolution of the Podman/WSL bridge-network limitation.
+* https://github.com/containers/netavark/issues/1495?utm_source=chatgpt.com
