@@ -466,7 +466,6 @@ kubectl scale deployment nginx-test \
 ### Next Kubernetes steps
 
 After validating Nginx, deploy `interview-service` into `faang-jobs-dev` using the same image-build and Kind image-loading workflow. The next application-focused steps are:
-
 1. Deploy one Java service replica.
 2. Validate the `/api/health` endpoint.
 3. Add readiness, liveness, and startup probes.
@@ -474,3 +473,6 @@ After validating Nginx, deploy `interview-service` into `faang-jobs-dev` using t
 5. Scale to three replicas.
 6. Repeat self-healing and Service-routing tests.
 7. Keep ELK external to Kubernetes until the core application deployment is understood and stable.
+8. Next would Deploy angular app in another namespace
+
+
